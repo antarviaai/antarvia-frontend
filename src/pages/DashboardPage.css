@@ -1,0 +1,12 @@
+/* src/pages/DashboardPage.css */
+.portal-container {
+    width: 100%;
+    min-height: 100vh;
+    padding: 30px 40px; /* Adjusted for better full-screen feel */
+    background-color: #0A0A0A;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+.portal-header { /* ... (rest of CSS is the same as before) ... */ }
+/* (You can copy the rest of the DashboardPage.css from our previous messages) */

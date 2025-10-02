@@ -1,31 +1,67 @@
 // src/pages/DashboardPage.jsx
-import React from 'react';
-import { Link } from 'react-router-dom'; // 1. Import Link
+import React, { useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom'; // 1. Import useNavigate
+import axios from 'axios';
 import './DashboardPage.css';
 
 function DashboardPage() {
+  const [user, setUser] = useState(null);
+  const navigate = useNavigate(); // 2. Initialize the navigate function
+
+  useEffect(() => {
+    const fetchUserProfile = async () => {
+      const token = localStorage.getItem('token');
+      if (token) {
+        try {
+          const response = await axios.get('http://localhost:5001/api/users/profile', {
+            headers: { 'Authorization': `Bearer ${token}` }
+          });
+          setUser(response.data);
+        } catch (error) {
+          console.error('Failed to fetch user profile:', error);
+          // If token is invalid, log out the user
+          handleLogout();
+        }
+      }
+    };
+    fetchUserProfile();
+  }, []);
+
+  // 3. Create the logout handler
+  const handleLogout = () => {
+    localStorage.removeItem('token'); // Remove the token
+    navigate('/'); // Redirect to the login page
+  };
+
   return (
     <div className="portal-container">
-      {/* ... header and other sections ... */}
+      <header className="portal-header">
+        <div className="brand"><h1>ANT Resident Portal</h1></div>
+        <div className="user-widget">
+          {/* 4. The new Logout button */}
+          <button onClick={handleLogout} className="new-request-btn" style={{backgroundColor: '#555', marginRight: '15px'}}>Logout</button>
+          <a href="#" className="user-avatar-link"><div className="user-avatar">{user ? user.email.charAt(0).toUpperCase() : ''}</div></a>
+        </div>
+      </header>
+
+      <div className="welcome-bar">
+        {/* The welcome message is now fully dynamic */}
+        <h2>Welcome back, {user ? user.email : '...'}</h2>
+        <p>You have 2 new packages waiting for pickup.</p>
+      </div>
+      
+      {/* --- All your feature sections remain the same --- */}
       <section className="feature-section">
         <h2 className="section-title">Core Services</h2>
         <div className="feature-grid">
-          <a href="#" className="feature-tile">{/* Online Payments tile */}</a>
-
-          {/* 2. Change this tile from 'a' to 'Link' */}
-          <Link to="/maintenance" className="feature-tile">
-            <div className="tile-icon" style={{backgroundColor: "rgba(245, 158, 11, 0.1)", color: "#F59E0B"}}><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg></div>
-            <div className="tile-content">
-              <h3>Maintenance Request</h3>
-              <p>Submit & track repair requests.</p>
-            </div>
-          </Link>
-          
-          <a href="#" className="feature-tile">{/* Announcements tile */}</a>
+            <a href="#" className="feature-tile">{/* Online Payments */}</a>
+            <Link to="/maintenance" className="feature-tile">{/* Maintenance Request */}</Link>
+            <a href="#" className="feature-tile">{/* Announcements */}</a>
         </div>
       </section>
       {/* ... other sections ... */}
     </div>
   );
 }
+
 export default DashboardPage;

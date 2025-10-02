@@ -1,0 +1,63 @@
+/* src/pages/AuthPage.css */
+.auth-page {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: background-image 0.5s ease-in-out;
+}
+
+.login-container, .signup-container {
+    width: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 16px;
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+    padding: 45px;
+    text-align: center;
+}
+
+.login-container {
+    max-width: 440px;
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.signup-container {
+    max-width: 750px;
+    background: rgba(255, 255, 255, 0.6);
+}
+
+.login-container h1, .signup-container h1 { font-size: 2rem; font-weight: 700; color: #1D1D1F; margin-bottom: 8px; }
+.login-container p, .signup-container p { color: #6B7280; margin-bottom: 35px; font-size: 1.1rem; line-height: 1.5; }
+
+.input-group { position: relative; margin-bottom: 20px; }
+.input-field, .input, .select {
+    width: 100%; padding: 14px; background: rgba(255, 255, 255, 0.7); 
+    border: 1px solid rgba(0, 0, 0, 0.1); border-radius: 10px;
+    color: #1D1D1F; font-size: 1rem; font-family: 'Inter', sans-serif;
+}
+
+.submit-btn {
+    width: 100%; color: white; border: none;
+    padding: 16px; border-radius: 10px; font-size: 1.1rem; font-weight: 600;
+    cursor: pointer;
+}
+.login-container .submit-btn { background: #27ae60; }
+.signup-container .submit-btn { background: #0A84FF; margin-top: 10px; }
+
+.bottom-links { margin-top: 25px; font-size: 0.9rem; color: #6B7280; }
+.bottom-links a { color: #27ae60; text-decoration: none; font-weight: 500; }
+.bottom-links .separator { margin: 0 10px; }
+
+.bottom-link { margin-top: 25px; font-size: 0.9rem; color: #6B7280; }
+.bottom-link a { color: #0A84FF; text-decoration: none; font-weight: 500; }
+
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; text-align: left; }
+.form-group { position: relative; margin-bottom: 15px; }
+.form-group.full-width { grid-column: 1 / -1; }

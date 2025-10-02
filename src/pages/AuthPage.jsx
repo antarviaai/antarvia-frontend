@@ -1,29 +1,34 @@
 // src/pages/AuthPage.jsx
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import LoginForm from '../components/LoginForm';
 import RegisterForm from '../components/RegisterForm';
+import './AuthPage.css'; // Import our new stylesheet
+
+// Define our background images
+const loginBg = 'url("https://i.imgur.com/K3Tn0Nv.jpeg")';
+const registerBg = 'url("https://i.imgur.com/ltfoVwg.jpeg")';
 
 function AuthPage() {
   const [showLogin, setShowLogin] = useState(true);
-  
-  // Center the auth container on the page
-  const authContainerStyle = {
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-    minHeight: '100vh',
-  };
+
+  // This effect will change the body's background image
+  useEffect(() => {
+    document.body.style.backgroundImage = showLogin ? loginBg : registerBg;
+    // Cleanup function to remove the background when we navigate away
+    return () => {
+      document.body.style.backgroundImage = null;
+    };
+  }, [showLogin]); // Re-run this effect whenever 'showLogin' changes
 
   return (
-    <div style={authContainerStyle}>
-      {showLogin ? <LoginForm /> : <RegisterForm />}
-      <div style={{ textAlign: 'center', marginTop: '20px' }}>
-        <button onClick={() => setShowLogin(!showLogin)} style={{ background: 'none', border: 'none', color: '#61dafb', cursor: 'pointer' }}>
-          {showLogin ? "Don't have an account? Sign Up" : 'Already have an account? Login'}
-        </button>
-      </div>
+    <div className="auth-page">
+      {showLogin ? (
+        <LoginForm onSwitch={() => setShowLogin(false)} />
+      ) : (
+        <RegisterForm onSwitch={() => setShowLogin(true)} />
+      )}
     </div>
   );
 }
+
 export default AuthPage;

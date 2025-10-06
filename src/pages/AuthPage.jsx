@@ -2,18 +2,31 @@
 import React, { useState, useEffect } from 'react';
 import LoginForm from '../components/LoginForm';
 import RegisterForm from '../components/RegisterForm';
+import ForgotPasswordForm from '../components/ForgotPasswordForm';
 import './AuthPage.css';
 
-// 1. Import both background images
+// Import all your background images
 import loginBg from '../assets/PLAN.png';
-import registerBg from '../assets/register-background.png'; // <-- CHANGE THIS FILENAME if yours is different
+import registerBg from '../assets/register-background.png';
+import forgotPassBg from '../assets/forgetpassword.png';
 
 function AuthPage() {
-  const [showLogin, setShowLogin] = useState(true);
+  const [view, setView] = useState('login'); 
 
   useEffect(() => {
-    // 2. Use a conditional to choose the background based on the 'showLogin' state
-    const backgroundToUse = showLogin ? loginBg : registerBg;
+    let backgroundToUse;
+    switch(view) {
+      case 'register':
+        backgroundToUse = registerBg;
+        break;
+      case 'forgotPassword':
+        backgroundToUse = forgotPassBg;
+        break;
+      case 'login':
+      default:
+        backgroundToUse = loginBg;
+        break;
+    }
     
     document.body.style.backgroundImage = `url(${backgroundToUse})`;
     document.body.classList.add('auth-page-wrapper');
@@ -22,15 +35,23 @@ function AuthPage() {
       document.body.style.backgroundImage = null;
       document.body.classList.remove('auth-page-wrapper');
     };
-  }, [showLogin]); // 3. IMPORTANT: This tells React to re-run the effect when 'showLogin' changes
+  }, [view]); // Re-run effect when the view changes
+
+  const renderView = () => {
+    switch (view) {
+      case 'register':
+        return <RegisterForm onSwitch={() => setView('login')} />;
+      case 'forgotPassword':
+        return <ForgotPasswordForm onSwitch={() => setView('login')} />;
+      case 'login':
+      default:
+        return <LoginForm onSwitchToRegister={() => setView('register')} onSwitchToForgot={() => setView('forgotPassword')} />;
+    }
+  };
 
   return (
     <div className="auth-page">
-      {showLogin ? (
-        <LoginForm onSwitch={() => setShowLogin(false)} />
-      ) : (
-        <RegisterForm onSwitch={() => setShowLogin(true)} />
-      )}
+      {renderView()}
     </div>
   );
 }

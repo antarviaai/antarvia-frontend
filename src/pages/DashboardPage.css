@@ -2,11 +2,51 @@
 .portal-container {
     width: 100%;
     min-height: 100vh;
-    padding: 30px 40px; /* Adjusted for better full-screen feel */
-    background-color: #0A0A0A;
+    padding: 30px 40px;
+    background-color: var(--bg-panel);
     display: flex;
     flex-direction: column;
     gap: 40px;
 }
-.portal-header { /* ... (rest of CSS is the same as before) ... */ }
-/* (You can copy the rest of the DashboardPage.css from our previous messages) */
+.portal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.brand h1 { font-size: 24px; font-weight: 700; }
+.user-widget { display: flex; align-items: center; gap: 15px; }
+.user-avatar {
+    width: 40px; height: 40px; border-radius: 50%;
+    background-color: #2E68FF;
+    display: grid; place-items: center; font-weight: 600;
+    border: 2px solid rgba(255,255,255,0.1);
+}
+.user-avatar-link { text-decoration: none; }
+.welcome-bar {
+    padding: 20px 25px;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--border-radius);
+    backdrop-filter: blur(12px);
+}
+.welcome-bar h2 { font-size: 20px; font-weight: 600; }
+.welcome-bar p { font-size: 16px; color: var(--text-secondary); margin-top: 5px; }
+.feature-section { display: flex; flex-direction: column; gap: 20px; }
+.section-title { font-size: 18px; font-weight: 600; color: var(--text-secondary); padding-left: 5px; }
+.feature-grid { display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+.feature-tile {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--border-radius);
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    backdrop-filter: blur(12px);
+    text-decoration: none;
+    color: var(--text-primary);
+}
+.tile-icon { width: 40px; height: 40px; border-radius: 8px; display: grid; place-items: center; }
+svg { width: 24px; height: 24px; }
+.tile-content h3 { font-size: 18px; font-weight: 600; }
+.tile-content p { font-size: 14px; color: var(--text-secondary); margin-top: 5px; line-height: 1.5; }

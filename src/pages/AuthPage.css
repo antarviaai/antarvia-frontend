@@ -1,4 +1,4 @@
-/* src/pages/AuthPage.css - Final Version */
+/* src/pages/AuthPage.css */
 .auth-page-wrapper {
     background-size: cover;
     background-position: center;
@@ -15,24 +15,23 @@
 }
 .login-container, .signup-container {
     width: 100%;
+    background: rgba(28, 28, 30, 0.75);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 16px;
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    padding: 45px;
     text-align: center;
 }
-.login-container { max-width: 500px; background: rgba(28, 28, 30, 0.75); padding: 45px; }
-.signup-container { max-width: 1100px; background: rgba(10, 10, 10, 0.6); padding: 20px 45px; }
+.login-container { max-width: 600px; }
+.signup-container { max-width: 900px; padding: 30px 45px; }
 .login-container h1, .signup-container h1 { font-size: 2rem; font-weight: 700; color: #F5F5F7; margin-bottom: 8px; }
-.login-container p, .signup-container p { color: #A0A0A5; margin-bottom: 20px; font-size: 1.1rem; line-height: 1.5; }
-.input-group, .form-group { position: relative; margin-bottom: 15px; text-align: left; }
+.login-container p, .signup-container p { color: #A0A0A5; margin-bottom: 25px; font-size: 1.1rem; line-height: 1.5; }
+.input-group, .form-group { position: relative; margin-bottom: 20px; text-align: left; }
 .input-field, .input, .select { width: 100%; padding: 14px; background: rgba(0, 0, 0, 0.2); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 10px; color: #F5F5F7; font-size: 1rem; }
-.input-field::placeholder, .input::placeholder, .select::placeholder { color: #6B7280; }
-.input-field:focus, .input:focus, .select:focus { outline: none; border-color: #0077ED; box-shadow: 0 0 0 3px rgba(0, 119, 237, 0.3); }
 .form-group label { display: block; margin-bottom: 8px; color: #A0A0A5; font-size: 0.9rem; font-weight: 500; text-align: left; }
 .submit-btn { width: 100%; background: #0077ED; color: white; border: none; padding: 16px; border-radius: 10px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: background-color 0.3s; }
-.submit-btn:hover { background-color: #0A84FF; }
 .bottom-links { margin-top: 25px; font-size: 0.9rem; color: #A0A0A5; }
 .bottom-links a { color: #00BFFF; text-decoration: none; font-weight: 500; }
 .bottom-links .separator { margin: 0 15px; }
@@ -40,30 +39,7 @@
 .bottom-link a { color: #0A84FF; text-decoration: none; font-weight: 500; }
 .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; text-align: left; }
 .form-group.full-width { grid-column: 1 / -1; }
-.password-wrapper { position: relative; display: flex; align-items: center; }
-.password-wrapper .input { padding-right: 45px; }
-.password-icon { position: absolute; right: 15px; top: 50%; transform: translateY(-50%); cursor: pointer; color: #A0A0A5; }
-.password-icon svg { width: 20px; height: 20px; }
-.welcome-note { text-align: left; color: #A0A0A5; background: rgba(0, 0, 0, 0.2); border: 1px solid rgba(255, 255, 255, 0.1); padding: 25px; border-radius: 10px; margin-bottom: 20px; }
-.welcome-note h3 { color: #F5F5F7; font-size: 1.2rem; margin-bottom: 10px; }
-.welcome-note p { font-size: 1rem; line-height: 1.6; margin-bottom: 15px !important; }
-.success-screen { display: flex; flex-direction: column; align-items: center; text-align: center; color: #F5F5F7; }
-.success-screen h1 { font-size: 2.5rem; color: #30D158; margin-bottom: 15px; }
-.success-screen p { font-size: 1.1rem; color: #A0A0A5; margin-bottom: 30px; max-width: 450px; }
-.success-screen .submit-btn { max-width: 300px; margin: 0 auto; }
-.modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); backdrop-filter: blur(10px); display: flex; justify-content: center; align-items: center; z-index: 1000; opacity: 0; visibility: hidden; transition: opacity 0.3s, visibility 0.3s; }
-.modal-overlay.open { opacity: 1; visibility: visible; }
-.modal-content { background: #0A0A0A; border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 14px; padding: 30px; width: 90%; max-width: 600px; transform: scale(0.95); transition: transform 0.3s; }
-.modal-overlay.open .modal-content { transform: scale(1); }
-.modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; }
-.modal-header h2 { font-size: 1.5rem; }
-.close-modal-btn { background: none; border: none; font-size: 1.8rem; color: #A0A0A5; cursor: pointer; }
-.snackbar { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); background-color: #30D158; color: white; padding: 16px 30px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); z-index: 2000; opacity: 0; visibility: hidden; transition: opacity 0.5s, bottom 0.5s, visibility 0.5s; }
-.snackbar.show { opacity: 1; visibility: visible; bottom: 50px; }
-
 @media (max-width: 768px) {
     .login-container, .signup-container { padding: 30px; }
-    .login-container h1, .signup-container h1 { font-size: 1.8rem; }
-    .login-container p, .signup-container p { font-size: 1rem; margin-bottom: 25px; }
     .form-grid { grid-template-columns: 1fr; }
 }

@@ -1,44 +1,6 @@
 /* src/App.css */
-.App {
-    text-align: center;
-  }
-  .login-form {
-    background-color: #3a3f4a;
-    padding: 40px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    min-width: 300px;
-  }
-  .login-form h2 {
-    color: white;
-    text-align: center;
-    margin-top: 0;
-  }
-  .login-form input {
-    padding: 12px;
-    border-radius: 4px;
-    border: 1px solid #555;
-    background-color: #282c34;
-    color: white;
-    font-size: 16px;
-  }
-  .login-form button {
-    padding: 12px;
-    border-radius: 4px;
-    border: none;
-    background-color: #61dafb;
-    color: #282c34;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.2s;
-  }
-  .login-form button:hover {
-    background-color: #7deaff;
-  }
-  .welcome-message {
-    color: white;
-  }
+/* This file is for truly global styles that apply everywhere.
+   For now, we can leave it mostly empty as our pages handle their own styles. */
+   .App {
+    /* We don't need text-align: center here anymore */
+}

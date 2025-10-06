@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-function LoginForm({ onSwitch }) {
+function LoginForm({ onSwitchToRegister, onSwitchToForgot }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
@@ -18,7 +18,7 @@ function LoginForm({ onSwitch }) {
       });
       localStorage.setItem('token', response.data.token);
       navigate('/dashboard');
-    } catch (error) {
+    } catch (error) { // The missing '{' was here
       if (error.response) {
         setMessage(error.response.data.message);
       } else {
@@ -52,14 +52,13 @@ function LoginForm({ onSwitch }) {
             required 
           />
         </div>
-        {/* We can show an error message here */}
         {message && <p style={{ color: 'red', fontSize: '0.9rem', marginBottom: '15px' }}>{message}</p>}
         <button type="submit" className="submit-btn">Sign In</button>
       </form>
       <div className="bottom-links">
-        <a href="#">Forgot Password?</a>
+        <a href="#" onClick={(e) => { e.preventDefault(); onSwitchToForgot(); }}>Forgot Password?</a>
         <span className="separator">|</span>
-        <a href="#" onClick={(e) => { e.preventDefault(); onSwitch(); }}>Create an account</a>
+        <a href="#" onClick={(e) => { e.preventDefault(); onSwitchToRegister(); }}>Create an account</a>
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-/* src/pages/DashboardPage.css */
+/* src/pages/DashboardLayout.css */
 .portal-container {
     width: 100%;
     min-height: 100vh;
@@ -45,6 +45,11 @@
     backdrop-filter: blur(12px);
     text-decoration: none;
     color: var(--text-primary);
+    transition: all 0.2s ease-in-out;
+}
+.feature-tile:hover {
+    transform: scale(1.02);
+    border-color: rgba(255, 255, 255, 0.2);
 }
 .tile-icon { width: 40px; height: 40px; border-radius: 8px; display: grid; place-items: center; }
 svg { width: 24px; height: 24px; }

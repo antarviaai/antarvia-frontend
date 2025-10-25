@@ -1,0 +1,46 @@
+/* SAFE CSS - This will not affect other parts of your application */
+.page-container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 30px;
+}
+.page-header { display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+.page-header h1 { font-size: 2.5rem; font-weight: 700; letter-spacing: -1px; }
+.page-header p { font-size: 1.1rem; color: #A0A0A5; margin-top: 5px; }
+.new-announcement-btn { background: #0A84FF; color: white; border: none; padding: 12px 20px; border-radius: 14px; font-size: 1rem; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+.draft-btn { background: #1C1C1C; border: 1px solid rgba(255, 255, 255, 0.08); color: #F5F5F7; padding: 12px 20px; border-radius: 10px; font-weight: 600; cursor: pointer;}
+.hub-layout { display: grid; grid-template-columns: 1fr 350px; gap: 30px; align-items: flex-start; }
+.card { background: rgba(28, 28, 30, 0.6); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 14px; backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); padding: 25px; }
+.card-title { font-size: 1.5rem; font-weight: 600; margin-bottom: 20px; }
+.announcement-list { display: flex; flex-direction: column; gap: 15px; }
+.announcement-item { background: #0A0A0A; border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 10px; padding: 20px; transition: background-color 0.2s ease-in-out; cursor: pointer; }
+.announcement-item:hover { background-color: #1C1C1C; }
+.item-title { font-weight: 600; font-size: 1.1rem; }
+.item-meta { font-size: 0.9rem; color: #A0A0A5; }
+.tip-card { background: rgba(255, 214, 10, 0.1); border-left: 3px solid #FFD60A; border-radius: 8px; padding: 20px; }
+.tip-card h3 { font-size: 1.1rem; color: #FFD60A; }
+.tip-card p { color: #A0A0A5; line-height: 1.6; margin-top: 10px; }
+.modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.8); backdrop-filter: blur(15px); display: flex; justify-content: center; align-items: center; padding: 40px; z-index: 1000; opacity: 0; visibility: hidden; transition: opacity .3s, visibility .3s; }
+.modal-overlay.open { opacity: 1; visibility: visible; }
+.modal-content { background: #0A0A0A; border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 14px; padding: 0; width: 100%; max-width: 1000px; transform: scale(.95); transition: transform .3s; height: 90vh; display: flex; flex-direction: column; overflow: hidden; }
+.modal-overlay.open .modal-content { transform: scale(1); }
+.modal-header { display: flex; justify-content: space-between; align-items: center; padding: 20px 30px; border-bottom: 1px solid rgba(255, 255, 255, 0.08); flex-shrink: 0; }
+.modal-header h2 { font-size: 1.5rem; }
+.close-modal-btn { background: none; border: none; font-size: 1.8rem; color: #A0A0A5; cursor: pointer; }
+.composer-body { flex-grow: 1; overflow-y: auto; padding: 30px; display: grid; grid-template-columns: 1fr 300px; gap: 30px; }
+.form-group { margin-bottom: 20px; }
+.form-group label { font-weight: 600; font-size: .9rem; display: block; margin-bottom: 8px; }
+.input, .select, .textarea { width: 100%; padding: 12px 15px; background: #1C1C1C; border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 10px; color: #F5F5F7; font-size: 1rem; }
+.textarea { min-height: 200px; resize: vertical; }
+.modal-footer { padding: 20px 30px; border-top: 1px solid rgba(255, 255, 255, 0.08); display: flex; justify-content: flex-end; gap: 15px; background: rgba(0, 0, 0, 0.2); }
+.success-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; background-color: rgba(0, 0, 0, 0.7); backdrop-filter: blur(10px); z-index: 2000; animation: fadeIn 0.3s ease-out; }
+.success-message-box { background-color: #0A0A0A; color: #F5F5F7; padding: 30px 50px; border-radius: 14px; font-size: 1.5rem; font-weight: 600; border: 1px solid rgba(255, 255, 255, 0.08); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+.view-modal-body { padding: 30px; overflow-y: auto; flex-grow: 1; }
+.view-modal-body .meta-details { padding-bottom: 20px; margin-bottom: 20px; border-bottom: 1px solid rgba(255, 255, 255, 0.08); color: #A0A0A5; display: flex; flex-wrap: wrap; gap: 30px; }
+.view-modal-body .message-content { font-size: 1.1rem; line-height: 1.7; white-space: pre-wrap; }
+@media (max-width: 900px) { .hub-layout, .composer-body { grid-template-columns: 1fr; } }

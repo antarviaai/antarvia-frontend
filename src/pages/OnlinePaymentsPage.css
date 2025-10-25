@@ -1,0 +1,138 @@
+:root {
+    --bg-dark: #000000;
+    --bg-panel: #0A0A0A;
+    --glass-bg: rgba(28, 28, 30, 0.6);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --glass-border-hover: rgba(255, 255, 255, 0.2);
+    --text-primary: #F5F5F7;
+    --text-secondary: #A0A0A5;
+    --accent-blue: #0A84FF;
+    --accent-green: #30D158;
+    --font-system: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --border-radius: 14px;
+    --transition-speed: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.page-container {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    font-family: var(--font-system);
+    color: var(--text-primary);
+}
+
+.page-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.page-header h1 { font-size: 2.5rem; font-weight: 700; letter-spacing: -1px; }
+.page-header p { font-size: 1.1rem; color: var(--text-secondary); margin-top: 5px; }
+
+.info-btn {
+    background: none;
+    border: none;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    color: var(--text-secondary);
+    transition: background-color var(--transition-speed), color var(--transition-speed);
+    margin-left: 15px;
+}
+.info-btn:hover {
+    background-color: var(--glass-bg);
+    color: var(--text-primary);
+}
+
+.payment-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--border-radius);
+    padding: 30px;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+}
+.payment-card .due-date { color: var(--text-secondary); font-weight: 600; font-size: 1rem; }
+.payment-card .due-amount {
+    font-size: 4rem;
+    font-weight: 700;
+    letter-spacing: -2px;
+    margin: 10px 0;
+    color: var(--text-primary);
+}
+
+.payment-actions { margin-top: 30px; display: flex; gap: 15px; }
+
+.pay-now-btn {
+    flex-grow: 1;
+    background: var(--accent-blue);
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform var(--transition-speed), background-color var(--transition-speed);
+}
+.pay-now-btn:hover { transform: scale(1.02); background-color: #0077ED; }
+
+.quick-action-btn {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    color: var(--text-primary);
+    padding: 15px 25px;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: border-color var(--transition-speed), background-color var(--transition-speed);
+}
+.quick-action-btn:hover { border-color: var(--glass-border-hover); background-color: rgba(255,255,255,0.05); }
+
+.history-section { margin-top: 20px; }
+.history-section h2 { font-size: 1.5rem; font-weight: 600; margin-bottom: 20px; }
+.history-list { display: flex; flex-direction: column; gap: 10px; }
+.history-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--border-radius);
+}
+.history-item .details { display: flex; align-items: center; gap: 15px; }
+.history-item .icon { width: 36px; height: 36px; border-radius: 50%; background: var(--bg-panel); display: grid; place-items: center; }
+.history-item .description .title { font-weight: 600; }
+.history-item .description .date { font-size: 0.9rem; color: var(--text-secondary); }
+.history-item .amount { font-weight: 600; font-size: 1rem; text-align: right; }
+.status-pill { font-size: 0.8rem; font-weight: 600; padding: 4px 10px; border-radius: 20px; margin-top: 4px; display: inline-block; }
+.status-pill.paid { background: rgba(48, 209, 88, 0.1); color: var(--accent-green); }
+
+.modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); display: flex; justify-content: center; align-items: center; z-index: 1000; opacity: 0; visibility: hidden; transition: opacity 0.3s, visibility 0.3s; }
+.modal-overlay.open { opacity: 1; visibility: visible; }
+.modal-content { background: var(--bg-panel); border: 1px solid var(--glass-border); border-radius: var(--border-radius); padding: 30px; width: 90%; max-width: 500px; transform: scale(0.95); transition: transform 0.3s; }
+.modal-overlay.open .modal-content { transform: scale(1); }
+.modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; }
+.modal-header h2 { font-size: 1.5rem; }
+.close-modal-btn { background: none; border: none; font-size: 1.8rem; color: var(--text-secondary); cursor: pointer; }
+.modal-body .form-group { margin-bottom: 20px; }
+.modal-body label { font-weight: 600; font-size: 0.9rem; display: block; margin-bottom: 8px; }
+.modal-body .input, .modal-body .select { width: 100%; padding: 12px 15px; background: var(--bg-element); border: 1px solid var(--glass-border); border-radius: 10px; color: var(--text-primary); font-size: 1rem; }
+.split-summary { padding: 15px; background: var(--bg-element); border-radius: 10px; margin-top: 10px; }
+.split-summary .row { display: flex; justify-content: space-between; font-size: 0.9rem; padding: 5px 0; }
+.split-summary .row span:first-child { color: var(--text-secondary); }
+.split-summary .row span:last-child { font-weight: 600; }
+.split-summary .total { font-weight: bold; border-top: 1px solid var(--glass-border); margin-top: 5px; padding-top: 10px; }
+.modal-body p { line-height: 1.7; color: var(--text-secondary); margin-bottom: 15px; }
+.modal-body strong { color: var(--text-primary); font-weight: 600; }
+.modal-footer { margin-top: 25px; text-align: right; font-style: italic; color: var(--text-secondary); }
+
+@media (max-width: 600px) { .payment-actions { flex-direction: column; } .page-header { flex-direction: column; align-items: flex-start; gap: 10px; } .page-header h1 { font-size: 2rem; } .info-btn { margin-left: -5px; } }

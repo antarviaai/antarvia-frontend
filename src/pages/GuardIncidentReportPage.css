@@ -1,0 +1,63 @@
+:root{
+    --bg-panel:#0a0a0a;
+    --bg-element:#1c1c1c;
+    --glass-bg:rgba(28,28,30,0.6);
+    --glass-border:rgba(255,255,255,0.08);
+    --text-primary:#f5f5f7;
+    --text-secondary:#a0a0a5;
+    --accent-blue:#0a84ff;
+    --accent-green:#30d158;
+    --accent-purple:#bf5af2;
+    --accent-yellow:#ffe08a;
+    --accent-yellow-dark:#facc15;
+    --radius:14px;
+    --font:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif
+  }
+  
+  .ir-page{max-width:1600px;margin:0 auto;padding:28px;color:var(--text-primary);font-family:var(--font)}
+  .ir-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+  .ir-title h1{margin:0 0 6px 0;font-size:2.1rem;font-weight:700}
+  .ir-title p{margin:0;color:var(--text-secondary)}
+  
+  .btn{border:none;padding:12px 16px;border-radius:12px;font-weight:700;cursor:pointer}
+  .btn-ghost{background:rgba(255,255,255,.06);border:1px solid var(--glass-border);color:var(--text-primary)}
+  .btn-ghost:hover{background:rgba(255,255,255,.1)}
+  .btn-primary{background:linear-gradient(90deg,#30d158,#2bb289);color:#071b0f}
+  .btn-ai{background:linear-gradient(90deg,var(--accent-purple),var(--accent-blue));color:#fff}
+  
+  .ir-grid{display:grid;grid-template-columns:2fr 1fr;gap:28px;align-items:start}
+  .ir-card{background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:var(--radius);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);padding:22px}
+  .ir-card-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+  .ir-card-head h2{margin:0;font-size:1.2rem;font-weight:700}
+  
+  .ir-form-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .form-group--full{grid-column:1/-1}
+  label{margin-bottom:6px;color:var(--text-secondary);font-size:.92rem;font-weight:600}
+  .input,.textarea{width:100%;background:var(--bg-element);border:1px solid var(--glass-border);border-radius:10px;color:var(--text-primary);font-size:1rem;padding:12px 14px}
+  .selectlike{appearance:none}
+  
+  .narrative-block{width:100%;margin-top:30px}
+  .narrative-title{font-size:1.1rem;font-weight:700;margin:0 0 10px 0}
+  .textarea-wrap{position:relative}
+  .textarea--wide{width:100%;min-height:420px;resize:vertical;line-height:1.6}
+  .char-counter{position:absolute;right:10px;bottom:10px;font-size:.85rem;color:var(--text-secondary)}
+  .composer-actions--below{display:flex;gap:12px;margin-top:18px}
+  
+  .ir-side{display:flex;flex-direction:column;gap:0}
+  .yellow-tip{background:#1b1b12;border:1px solid rgba(250,204,21,.25);color:var(--accent-yellow);border-radius:12px;padding:16px}
+  .yellow-tip h3{margin:0 0 6px 0;color:var(--accent-yellow-dark)}
+  
+  .toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%);background:rgba(10,132,255,.95);color:#fff;font-weight:700;padding:10px 14px;border-radius:10px;opacity:0;animation:toast 2.2s ease forwards;z-index:1200}
+  @keyframes toast{0%{opacity:0;transform:translate(-50%,6px)}10%{opacity:1;transform:translate(-50%,0)}90%{opacity:1}100%{opacity:0}}
+  
+  .sheet-overlay{position:fixed;left:0;right:0;bottom:0;top:0;display:flex;align-items:flex-end;background:rgba(0,0,0,0.35);backdrop-filter:blur(2px);opacity:0;visibility:hidden;transition:opacity .25s;z-index:1300}
+  .sheet-overlay.open{opacity:1;visibility:visible}
+  .sheet{width:min(1100px,92vw);margin:0 auto 18px auto;background:var(--bg-panel);border:1px solid var(--glass-border);border-radius:16px;padding:16px 16px 18px 16px;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+  .sheet-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+  .sheet-head h3{margin:0;color:var(--accent-yellow-dark)}
+  .sheet-close{background:none;border:none;color:var(--text-secondary);font-size:1.6rem;cursor:pointer}
+  .sheet-body{max-height:45vh;overflow:auto;background:var(--bg-element);border:1px solid var(--glass-border);border-radius:12px;padding:14px;white-space:pre-wrap;line-height:1.55}
+  .sheet-actions{display:flex;gap:10px;justify-content:flex-end;margin-top:12px}
+  
+  @media (max-width:1200px){.ir-grid{grid-template-columns:1fr}}
+  

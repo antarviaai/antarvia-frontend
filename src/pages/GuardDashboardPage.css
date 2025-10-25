@@ -1,0 +1,136 @@
+/* * ========================================
+ * Antarviahub - Guard Dashboard Styles
+ * ========================================
+ */
+
+/* --- Welcome Bar --- */
+.welcome-bar {
+    background-color: #1e1e1e; 
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 16px 24px;
+    border-radius: 12px;
+    margin-bottom: 32px;
+}
+.welcome-bar h2 {
+    margin: 0 0 4px 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #ffffff;
+}
+.welcome-bar p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7); 
+}
+
+
+/* --- Section Layout --- */
+.feature-section {
+    margin-bottom: 32px;
+}
+
+/* --- SECTION TITLE (BOLD) --- */
+.section-title {
+    font-size: 1.2rem;
+    font-weight: 700; /* Bold */
+    color: rgba(255, 255, 255, 0.9); /* Default color */
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+/* --- NEW COLORED HEADING STYLES --- */
+.section-priority {
+    color: #0A84FF; /* Blue */
+}
+.section-safety {
+    color: #FF453A; /* Red */
+}
+.section-ops {
+    color: #30D158; /* Green */
+}
+.section-comm {
+    color: #6366F1; /* Purple */
+}
+
+
+/* --- Feature Tile Grid --- */
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+}
+
+/* --- THE TILE STYLE (Back to simple gray) --- */
+.feature-tile {
+    background-color: #1e1e1e;   /* This is theme.palette.background.paper */
+    border: 1px solid rgba(255, 255, 255, 0.12); /* The light border */
+    border-radius: 12px;
+    padding: 20px;
+    text-decoration: none;
+    color: inherit;
+    transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.feature-tile:hover {
+    background-color: #2a2a2a;
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+/* --- (DELETED all the .tile-priority, .tile-ops, etc. styles) --- */
+
+
+/* --- Tile Content (Icon & Text) --- */
+.tile-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+}
+.tile-icon svg {
+    width: 20px;
+    height: 20px;
+}
+.tile-content h3 {
+    margin: 0 0 8px 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #ffffff;
+}
+.tile-content p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.4;
+}
+
+/* --- Special Tiles (like Fire Mode) --- */
+.feature-tile.emergency {
+    /* Special border for emergency tile */
+    border-color: rgba(255, 69, 58, 0.4); 
+}
+.feature-tile.emergency:hover {
+    border-color: rgba(255, 69, 58, 0.7);
+    background-color: rgba(255, 69, 58, 0.1); 
+}
+
+/* --- Locked/Disabled Tiles --- */
+.feature-tile.locked {
+    opacity: 0.5;
+    cursor: not-allowed;
+    position: relative;
+    transform: none;
+    background-color: #1e1e1e;
+}
+.feature-tile.locked:hover {
+    border-color: rgba(255, 255, 255, 0.12);
+}
+.lock-icon { 
+    position: absolute; 
+    top: 20px; 
+    right: 20px; 
+}

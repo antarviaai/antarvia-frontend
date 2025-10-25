@@ -13,9 +13,13 @@ function LoginForm({ onSwitchToRegister, onSwitchToForgot }) {
     event.preventDefault();
     setMessage('');
     try {
-      const response = await axios.post('http://localhost:5001/api/users/login', {
+      // --- THIS IS THE FIX ---
+      // We removed "http://localhost:5001" so Vite's proxy can work.
+      const response = await axios.post('/api/users/login', {
         email, password,
       });
+      // --- END OF FIX ---
+
       localStorage.setItem('token', response.data.token);
       navigate('/dashboard');
     } catch (error) { // The missing '{' was here
